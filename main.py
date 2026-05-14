@@ -3,12 +3,13 @@ products = []
 option = []
 
 # Method main 
-while option != "5": 
+while option != "6": 
     print("1. Add product")
     print("2. Remove product")
     print("3. View products")
-    print("4. Update product")
-    print("5. Exit")
+    print("4. Search product")
+    print("5. Update product")
+    print("6. Exit")
 
     option = input("Choose an option: ")
 
@@ -54,6 +55,17 @@ while option != "5":
                 print(f"Name: {product[0]}, Category: {product[1]}, Price: {product[2]}")
 
     elif option == "4":
+        name = input("Enter product name to search: ")
+        found = False
+        for product in products:
+            if product[0] == name:
+                print(f"Name: {product[0]}, Category: {product[1]}, Price: {product[2]}")
+                found = True
+                break
+        if not found:
+            print("Product not found.")
+
+    elif option == "5":
         name = input("Enter product name to update: ")
         for product in products:
             if product[0] == name:
@@ -68,7 +80,7 @@ while option != "5":
         else:
             print("Product not found.")
 
-    elif option == "5":
+    elif option == "6":
         print("Exiting the program. Goodbye!")
 
     else:
